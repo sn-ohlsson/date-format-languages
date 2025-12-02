@@ -733,7 +733,7 @@ finnish =
 
 
 {-| The Norwegian language!
-Note: bokmål only, use norwegianNynorsk for nynorsk.
+Note: bokmål only, use `norwegianNynorsk` for nynorsk.
 -}
 norwegian : Language
 norwegian =
@@ -747,7 +747,7 @@ norwegian =
 
 
 {-| The Norwegian language 
-Note: nynorsk only, use norwegian for nynorsk.
+Note: nynorsk only, use `norwegian` for bokmål.
 -}
 norwegianNynorsk : Language
 norwegianNynorsk =
