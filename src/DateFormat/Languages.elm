@@ -1,6 +1,6 @@
 module DateFormat.Languages exposing
     ( Language
-    , english, spanish, dutch, swedish, portuguese, french, finnish, norwegian, greek, italian, slovenian
+    , english, spanish, dutch, swedish, portuguese, french, finnish, norwegian, norwegianNynorsk, greek, italian, slovenian
     , DateLanguage, toDateLanguage
     )
 
@@ -23,7 +23,7 @@ This module exposes `Language` (compatible with `ryannhg/date-format`) and `Date
 
 ### Languages
 
-@docs english, spanish, dutch, swedish, portuguese, french, finnish, norwegian, greek, italian, slovenian
+@docs english, spanish, dutch, swedish, portuguese, french, finnish, norwegian, norwegianNynorsk, greek, italian, slovenian
 
 
 ### Compatibility
@@ -733,6 +733,7 @@ finnish =
 
 
 {-| The Norwegian language!
+Note: bokmål only, use norwegianNynorsk for nynorsk.
 -}
 norwegian : Language
 norwegian =
@@ -741,6 +742,20 @@ norwegian =
         (toNorwegianMonthName >> String.left 3)
         toNorwegianWeekdayName
         (toNorwegianWeekdayName >> String.left 3)
+        toNorwegianAmPm
+        toNorwegianOrdinalSuffix
+
+
+{-| The Norwegian language 
+Note: nynorsk only, use norwegian for nynorsk.
+-}
+norwegianNynorsk : Language
+norwegianNynorsk =
+    Language
+        toNorwegianMonthName
+        (toNorwegianMonthName >> String.left 3)
+        toNorwegianNynorskWeekdayName
+        (toNorwegianNynorskWeekdayName >> String.left 3)
         toNorwegianAmPm
         toNorwegianOrdinalSuffix
 
@@ -805,6 +820,31 @@ toNorwegianWeekdayName weekday =
 
         Sat ->
             "lørdag"
+
+        Sun ->
+            "søndag"
+
+
+toNorwegianNynorskWeekdayName : Time.Weekday -> String
+toNorwegianNynorskWeekdayName weekday =
+    case weekday of
+        Mon ->
+            "måndag"
+
+        Tue ->
+            "tysdag"
+
+        Wed ->
+            "onsdag"
+
+        Thu ->
+            "torsdag"
+
+        Fri ->
+            "fredag"
+
+        Sat ->
+            "laurdag"
 
         Sun ->
             "søndag"
