@@ -1,8 +1,7 @@
 module DateFormat.Languages exposing
     ( Language
-    , english, spanish, dutch, swedish, portuguese, french, finnish, norwegianNynorsk, greek, italian, slovenian
+    , english, spanish, dutch, swedish, portuguese, french, finnish, norwegianBokmål, norwegianNynorsk, greek, italian, slovenian
     , DateLanguage, toDateLanguage
-    , norwegianBokmål
     )
 
 {-|
@@ -24,7 +23,7 @@ This module exposes `Language` (compatible with `ryannhg/date-format`) and `Date
 
 ### Languages
 
-@docs english, spanish, dutch, swedish, portuguese, french, finnish, norwegian, norwegianNynorsk, greek, italian, slovenian
+@docs english, spanish, dutch, swedish, portuguese, french, finnish, norwegian, norwegianBokmål, norwegianNynorsk, greek, italian, slovenian
 
 
 ### Compatibility
