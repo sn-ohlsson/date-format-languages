@@ -1,6 +1,6 @@
 module DateFormat.Languages exposing
     ( Language
-    , english, spanish, dutch, swedish, portuguese, french, finnish, norwegianBokmål, norwegianNynorsk, greek, italian, slovenian
+    , english, spanish, dutch, swedish, portuguese, french, finnish, norwegian, norwegianBokmål, norwegianNynorsk, greek, italian, slovenian
     , DateLanguage, toDateLanguage
     )
 
@@ -730,6 +730,13 @@ finnish =
 
 
 -- Norwegian
+
+
+{-| The Norwegian language - deprecated synonym for norwegianBokmål.
+-}
+norwegian : Language
+norwegian =
+    norwegianBokmål
 
 
 {-| The Norwegian language (bokmål)!
