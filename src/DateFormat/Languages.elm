@@ -1,7 +1,8 @@
 module DateFormat.Languages exposing
     ( Language
-    , english, spanish, dutch, swedish, portuguese, french, finnish, norwegian, norwegianNynorsk, greek, italian, slovenian
+    , english, spanish, dutch, swedish, portuguese, french, finnish, norwegianNynorsk, greek, italian, slovenian
     , DateLanguage, toDateLanguage
+    , norwegianBokmål
     )
 
 {-|
@@ -732,22 +733,20 @@ finnish =
 -- Norwegian
 
 
-{-| The Norwegian language!
-Note: bokmål only, use `norwegianNynorsk` for nynorsk.
+{-| The Norwegian language (bokmål)!
 -}
-norwegian : Language
-norwegian =
+norwegianBokmål : Language
+norwegianBokmål =
     Language
         toNorwegianMonthName
         (toNorwegianMonthName >> String.left 3)
-        toNorwegianWeekdayName
-        (toNorwegianWeekdayName >> String.left 3)
+        toNorwegianBokmålWeekdayName
+        (toNorwegianBokmålWeekdayName >> String.left 3)
         toNorwegianAmPm
         toNorwegianOrdinalSuffix
 
 
-{-| The Norwegian language 
-Note: nynorsk only, use `norwegian` for bokmål.
+{-| The Norwegian language (nynorsk)!
 -}
 norwegianNynorsk : Language
 norwegianNynorsk =
@@ -760,6 +759,8 @@ norwegianNynorsk =
         toNorwegianOrdinalSuffix
 
 
+{-| No differences between bokmål and nynorsk
+-}
 toNorwegianMonthName : Time.Month -> String
 toNorwegianMonthName month =
     case month of
@@ -800,8 +801,8 @@ toNorwegianMonthName month =
             "desember"
 
 
-toNorwegianWeekdayName : Time.Weekday -> String
-toNorwegianWeekdayName weekday =
+toNorwegianBokmålWeekdayName : Time.Weekday -> String
+toNorwegianBokmålWeekdayName weekday =
     case weekday of
         Mon ->
             "mandag"
@@ -850,12 +851,16 @@ toNorwegianNynorskWeekdayName weekday =
             "søndag"
 
 
+{-| No differences between bokmål and nynorsk
+-}
 toNorwegianAmPm : Int -> String
 toNorwegianAmPm _ =
     -- Norwegian uses 24h formatting only.
     ""
 
 
+{-| No differences between bokmål and nynorsk
+-}
 toNorwegianOrdinalSuffix : Int -> String
 toNorwegianOrdinalSuffix _ =
     "."
